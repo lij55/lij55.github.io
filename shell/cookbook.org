@@ -1,0 +1,26 @@
+* Examples
+
+**For Loop**
+#+BEGIN_SRC bash
+for var in $(ls *.txt)
+do
+    echo ${var}
+done
+#+END_SRC
+
+#+BEGIN_SRC bash
+for var in $(ls *.txt); do echo ${var}; done
+#+END_SRC
+
+#+BEGIN_SRC bash
+files="/etc/passwd /etc/group /etc/shadow /etc/gshdow"
+for f in $files
+do
+	[  -f $f ] && echo "$f file found" || echo "*** Error - $f file missing."
+done
+#+END_SRC
+
+**While Loop**
+
+
+* One lines
