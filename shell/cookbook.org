@@ -1,6 +1,9 @@
+#+SETUPFILE: note.setup
+
 * Examples
 
-**For Loop**
+** Bash look
+   **For Loop**
 #+BEGIN_SRC bash
 for var in $(ls *.txt)
 do
@@ -20,7 +23,12 @@ do
 done
 #+END_SRC
 
-**While Loop**
+** Bash environment
 
+* tips
 
-* One lines
+** Remove commented line
+   Remove empty line and comment line
+   #+begin_src bash
+   grep -v "^#" test.conf 
+   #+end_src

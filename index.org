@@ -1,1 +1,5 @@
+#+SETUPFILE: note.setup
+
 * [[/shell/][shell]]
+
+  

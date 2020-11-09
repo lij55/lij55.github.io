@@ -1,0 +1,15 @@
+* zsh
+** Install 
+ #+begin_src bash
+ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ #+end_src
+
+* emacs
+** Install spacemacs
+ #+begin_src bash
+ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+ #+end_src
+
+* git
+
+* 
