@@ -11,5 +11,40 @@
  #+end_src
 
 * git
+* tmux
+* docker
+** Install
+   Ubuntu
+   #+begin_src bash
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+        $(lsb_release -cs) \
+        stable"
+   sudo apt-get install docker-ce docker-ce-cli containerd.io
+   sudo groupadd docker
+   sudo usermod -aG docker $USER
+   sudo systemctl enable docker
+   sudo systemctl start docker
+#+end_src
+** 
 
-* 
+* development env
+** Install build tools (make, gcc, etc)
+   Ubuntu
+   #+begin_src bash
+   sudo apt install -y build-essential
+   #+end_src
+   CentOS
+   #+begin_src bash
+   sudo yum group install -y "development tools"
+   #+end_src
+** show dynamic link information
+   Check directly linked libraries
+   #+begin_src bash
+   readelf -d path/to/binary
+   #+end_src
+   Show all required libraries
+   #+begin_src bash
+   ldd path/to/binary
+   #+end_src
+

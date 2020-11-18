@@ -1,5 +1,5 @@
 #+SETUPFILE: note.setup
 
-* [[/shell/][shell]]
+* [[rel:/shell/index.html][shell]]
 
   

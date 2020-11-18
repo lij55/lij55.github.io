@@ -1,2 +1,2 @@
-* [[/cookbook.html][cookbook]]
-* [[/tools][tools.html]]
+* [[rel:/cookbook.html][cookbook]]
+* [[rel:/tools.html][tools]]

@@ -2,7 +2,7 @@
 
 * Examples
 
-** Bash look
+** Bash loop
    **For Loop**
 #+BEGIN_SRC bash
 for var in $(ls *.txt)
@@ -23,11 +23,18 @@ do
 done
 #+END_SRC
 
+** Write file
+   #+begin_src bash
+   cat << "EOF" > outout.txt
+export PATH=/opt/bin:$PATH
+EOF
+   #+end_src
+
 ** Bash environment
 
 * tips
 
-** Remove commented line
+** Remove line of comments
    Remove empty line and comment line
    #+begin_src bash
    grep -v "^#" test.conf 
