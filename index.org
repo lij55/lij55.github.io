@@ -1,4 +1,5 @@
 #+SETUPFILE: note.setup
+#TITLE: hello, world
 
 * [[./shell/index.html][shell]]
 

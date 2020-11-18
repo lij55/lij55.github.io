@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-18 Wed 17:06 -->
+<!-- 2020-11-18 Wed 17:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>tips of linux tools</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Jasper Li" />
 <style type="text/css">
@@ -248,29 +248,33 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
+<h1 class="title">tips of linux tools</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3516444">zsh</a></li>
-<li><a href="#orgdf12ce5">emacs</a></li>
-<li><a href="#org34c4273">git</a></li>
-<li><a href="#orgd19e712">tmux</a></li>
-<li><a href="#orgd842811">docker</a></li>
-<li><a href="#org0caadd5">development env</a></li>
+<li><a href="#org49e3d49">zsh</a></li>
+<li><a href="#org183196b">emacs</a></li>
+<li><a href="#org45ad23f">git</a></li>
+<li><a href="#orgebbc466">ssh</a></li>
+<li><a href="#orgd8d93dc">tmux</a></li>
+<li><a href="#orgcf193be">docker</a></li>
+<li><a href="#orga65fa5c">development env</a></li>
+<li><a href="#orga94d468">http server</a></li>
+<li><a href="#org098da79">kafkacat</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3516444" class="outline-2">
-<h2 id="org3516444">zsh</h2>
-<div class="outline-text-2" id="text-org3516444">
+<div id="outline-container-org49e3d49" class="outline-2">
+<h2 id="org49e3d49">zsh</h2>
+<div class="outline-text-2" id="text-org49e3d49">
 </div>
 <ul class="org-ul">
-<li><a id="orge72cfd4"></a>Install<br />
-<div class="outline-text-3" id="text-orge72cfd4">
+<li><a id="org97ce2e6"></a>Install oh-my-zsh<br />
+<div class="outline-text-3" id="text-org97ce2e6">
 <div class="org-src-container">
-<pre class="src src-bash">sh -c <span style="font-style: italic;">"$(</span><span style="font-weight: bold;">curl</span><span style="font-style: italic;"> -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span>
+<pre class="src src-bash">sh -c <span style="color: #00ff00;">"$(</span><span style="color: #fa8072;">curl</span><span style="color: #00ff00;"> -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span>
 </pre>
 </div>
 </div>
@@ -278,63 +282,74 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-orgdf12ce5" class="outline-2">
-<h2 id="orgdf12ce5">emacs</h2>
-<div class="outline-text-2" id="text-orgdf12ce5">
+<div id="outline-container-org183196b" class="outline-2">
+<h2 id="org183196b">emacs</h2>
+<div class="outline-text-2" id="text-org183196b">
 </div>
 <ul class="org-ul">
-<li><a id="org2cd6dc2"></a>Install spacemacs<br />
-<div class="outline-text-3" id="text-org2cd6dc2">
+<li><a id="orga35c7eb"></a>Install spacemacs<br />
+<div class="outline-text-3" id="text-orga35c7eb">
 <div class="org-src-container">
 <pre class="src src-bash">git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 </pre>
 </div>
 </div>
 </li>
+<li><a id="orgd4dcc0c"></a>Export org in batch mode<br />
+<div class="outline-text-3" id="text-orgd4dcc0c">
+<div class="org-src-container">
+<pre class="src src-bash">emacs my.org --batch -l ~/.emacs.d/init.el -f org-html-export-to-html --kill
+</pre>
+</div>
+</div>
+</li>
 </ul>
 </div>
 
-<div id="outline-container-org34c4273" class="outline-2">
-<h2 id="org34c4273">git</h2>
+<div id="outline-container-org45ad23f" class="outline-2">
+<h2 id="org45ad23f">git</h2>
 </div>
-<div id="outline-container-orgd19e712" class="outline-2">
-<h2 id="orgd19e712">tmux</h2>
+<div id="outline-container-orgebbc466" class="outline-2">
+<h2 id="orgebbc466">ssh</h2>
 </div>
-<div id="outline-container-orgd842811" class="outline-2">
-<h2 id="orgd842811">docker</h2>
-<div class="outline-text-2" id="text-orgd842811">
+<div id="outline-container-orgd8d93dc" class="outline-2">
+<h2 id="orgd8d93dc">tmux</h2>
+</div>
+<div id="outline-container-orgcf193be" class="outline-2">
+<h2 id="orgcf193be">docker</h2>
+<div class="outline-text-2" id="text-orgcf193be">
 </div>
 <ul class="org-ul">
-<li><a id="orgee90b78"></a>Install<br />
-<div class="outline-text-3" id="text-orgee90b78">
+<li><a id="orgc933cf8"></a>Install<br />
+<div class="outline-text-3" id="text-orgc933cf8">
 <p>
 Ubuntu
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository    <span style="font-style: italic;">"deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span>
-<span style="font-style: italic;">     $(</span><span style="font-weight: bold;">lsb_release</span><span style="font-style: italic;"> -cs) \</span>
-<span style="font-style: italic;">     stable"</span>
+sudo add-apt-repository    <span style="color: #00ff00;">"deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span>
+<span style="color: #00ff00;">     $(</span><span style="color: #fa8072;">lsb_release</span><span style="color: #00ff00;"> -cs) \</span>
+<span style="color: #00ff00;">     stable"</span>
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo groupadd docker
-sudo usermod -aG docker $<span style="font-weight: bold; font-style: italic;">USER</span>
+sudo usermod -aG docker $<span style="color: #ffff00;">USER</span>
 sudo systemctl enable docker
 sudo systemctl start docker
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org5b99a7e"></a><br /></li>
+<li><a id="org3fbab83"></a><br /></li>
 </ul>
 </div>
 
-<div id="outline-container-org0caadd5" class="outline-2">
-<h2 id="org0caadd5">development env</h2>
-<div class="outline-text-2" id="text-org0caadd5">
+<div id="outline-container-orga65fa5c" class="outline-2">
+<h2 id="orga65fa5c">development env</h2>
+<div class="outline-text-2" id="text-orga65fa5c">
 </div>
 <ul class="org-ul">
-<li><a id="org6e91279"></a>Install build tools (make, gcc, etc)<br />
-<div class="outline-text-3" id="text-org6e91279">
+<li><a id="orgfb1ad55"></a>Install build tools (make, gcc, etc)<br />
+<div class="outline-text-3" id="text-orgfb1ad55">
 <p>
 Ubuntu
 </p>
@@ -346,13 +361,13 @@ Ubuntu
 CentOS
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sudo yum group install -y <span style="font-style: italic;">"development tools"</span>
+<pre class="src src-bash">sudo yum group install -y <span style="color: #00ff00;">"development tools"</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org27380cf"></a>show dynamic link information<br />
-<div class="outline-text-3" id="text-org27380cf">
+<li><a id="org9a6d89d"></a>show dynamic link information<br />
+<div class="outline-text-3" id="text-org9a6d89d">
 <p>
 Check directly linked libraries
 </p>
@@ -367,6 +382,75 @@ Show all required libraries
 <pre class="src src-bash">ldd path/to/binary
 </pre>
 </div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orga94d468" class="outline-2">
+<h2 id="orga94d468">http server</h2>
+<div class="outline-text-2" id="text-orga94d468">
+</div>
+<ul class="org-ul">
+<li><a id="org1ebc9d5"></a>caddy<br />
+<div class="outline-text-3" id="text-org1ebc9d5">
+<p>
+Download/Install
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">curl -OL <span style="color: #00ff00;">"https://github.com/caddyserver/caddy/releases/latest/download/ASSET"</span>
+</pre>
+</div>
+<p>
+Replace ASSET with the <code>caddy_[version]_[os]_[arch].tar.gz</code>. For example, <code>caddy_2.2.1_linux_amd64.tar.gz</code>, <code>caddy_2.2.1_mac_amd64.tar.gz</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">docker pull caddy
+</pre>
+</div>
+<p>
+File server
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">caddy file-server --root <span style="color: #fa8072;">`pwd`</span> --listen 80 --browse
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgd4832d9"></a>python<br />
+<div class="outline-text-3" id="text-orgd4832d9">
+<p>
+python 3
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">python3 -m http.server 8000
+</pre>
+</div>
+<p>
+python 2
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">python -m SimpleHTTPServer 8000
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org098da79" class="outline-2">
+<h2 id="org098da79">kafkacat</h2>
+<div class="outline-text-2" id="text-org098da79">
+</div>
+<ul class="org-ul">
+<li><a id="orgc1fa56a"></a>list topic<br />
+<div class="outline-text-3" id="text-orgc1fa56a">
+<div class="org-src-container">
+<pre class="src src-bash">kafkacat -b broker_list -L -j
+</pre>
+</div>
+<p>
+<code>-j</code> means in json format
+</p>
 </div>
 </li>
 </ul>

@@ -1,7 +1,8 @@
 #+SETUPFILE: note.setup
+#+TITLE: tips of linux tools
 
 * zsh
-** Install 
+** Install oh-my-zsh
  #+begin_src bash
  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
  #+end_src
@@ -11,8 +12,13 @@
  #+begin_src bash
  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
  #+end_src
+** Export org in batch mode
+   #+begin_src bash
+   emacs my.org --batch -l ~/.emacs.d/init.el -f org-html-export-to-html --kill
+   #+end_src
 
 * git
+* ssh
 * tmux
 * docker
 ** Install
@@ -49,4 +55,39 @@
    #+begin_src bash
    ldd path/to/binary
    #+end_src
-
+* http server
+** caddy
+   Download/Install
+   #+begin_src bash
+   curl -OL "https://github.com/caddyserver/caddy/releases/latest/download/ASSET"
+   #+end_src
+   Replace ASSET with the =caddy_[version]_[os]_[arch].tar.gz=. For example, =caddy_2.2.1_linux_amd64.tar.gz=, =caddy_2.2.1_mac_amd64.tar.gz=
+   
+   #+begin_src bash
+   docker pull caddy
+   #+end_src
+   File server
+   #+begin_src bash
+   caddy file-server --root `pwd` --listen 80 --browse
+   #+end_src
+** python
+   python 3
+   #+begin_src bash
+   python3 -m http.server 8000
+   #+end_src
+   python 2
+   #+begin_src bash
+   python -m SimpleHTTPServer 8000
+   #+end_src
+* kafkacat
+** list topic
+  #+begin_src bash
+  kafkacat -b broker_list -L -j
+  #+end_src
+  =-j= means in json format
+** producer
+* Kafka
+  ** Create topic
+  #+begin_src bash
+  bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+  #+end_src
