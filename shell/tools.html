@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-18 Wed 15:56 -->
+<!-- 2020-11-18 Wed 17:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -193,6 +193,12 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -246,23 +252,23 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org47e3396">zsh</a></li>
-<li><a href="#org8dad171">emacs</a></li>
-<li><a href="#org439b8b7">git</a></li>
-<li><a href="#orgb895e08">tmux</a></li>
-<li><a href="#org6034b83">docker</a></li>
-<li><a href="#org411eda6">development env</a></li>
+<li><a href="#org3516444">zsh</a></li>
+<li><a href="#orgdf12ce5">emacs</a></li>
+<li><a href="#org34c4273">git</a></li>
+<li><a href="#orgd19e712">tmux</a></li>
+<li><a href="#orgd842811">docker</a></li>
+<li><a href="#org0caadd5">development env</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org47e3396" class="outline-2">
-<h2 id="org47e3396">zsh</h2>
-<div class="outline-text-2" id="text-org47e3396">
+<div id="outline-container-org3516444" class="outline-2">
+<h2 id="org3516444">zsh</h2>
+<div class="outline-text-2" id="text-org3516444">
 </div>
 <ul class="org-ul">
-<li><a id="org7596984"></a>Install<br />
-<div class="outline-text-3" id="text-org7596984">
+<li><a id="orge72cfd4"></a>Install<br />
+<div class="outline-text-3" id="text-orge72cfd4">
 <div class="org-src-container">
 <pre class="src src-bash">sh -c <span style="font-style: italic;">"$(</span><span style="font-weight: bold;">curl</span><span style="font-style: italic;"> -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span>
 </pre>
@@ -272,13 +278,13 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org8dad171" class="outline-2">
-<h2 id="org8dad171">emacs</h2>
-<div class="outline-text-2" id="text-org8dad171">
+<div id="outline-container-orgdf12ce5" class="outline-2">
+<h2 id="orgdf12ce5">emacs</h2>
+<div class="outline-text-2" id="text-orgdf12ce5">
 </div>
 <ul class="org-ul">
-<li><a id="org9162d5a"></a>Install spacemacs<br />
-<div class="outline-text-3" id="text-org9162d5a">
+<li><a id="org2cd6dc2"></a>Install spacemacs<br />
+<div class="outline-text-3" id="text-org2cd6dc2">
 <div class="org-src-container">
 <pre class="src src-bash">git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 </pre>
@@ -288,19 +294,19 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org439b8b7" class="outline-2">
-<h2 id="org439b8b7">git</h2>
+<div id="outline-container-org34c4273" class="outline-2">
+<h2 id="org34c4273">git</h2>
 </div>
-<div id="outline-container-orgb895e08" class="outline-2">
-<h2 id="orgb895e08">tmux</h2>
+<div id="outline-container-orgd19e712" class="outline-2">
+<h2 id="orgd19e712">tmux</h2>
 </div>
-<div id="outline-container-org6034b83" class="outline-2">
-<h2 id="org6034b83">docker</h2>
-<div class="outline-text-2" id="text-org6034b83">
+<div id="outline-container-orgd842811" class="outline-2">
+<h2 id="orgd842811">docker</h2>
+<div class="outline-text-2" id="text-orgd842811">
 </div>
 <ul class="org-ul">
-<li><a id="orgdcf8837"></a>Install<br />
-<div class="outline-text-3" id="text-orgdcf8837">
+<li><a id="orgee90b78"></a>Install<br />
+<div class="outline-text-3" id="text-orgee90b78">
 <p>
 Ubuntu
 </p>
@@ -318,17 +324,17 @@ sudo systemctl start docker
 </div>
 </div>
 </li>
-<li><a id="org6f685f5"></a><br /></li>
+<li><a id="org5b99a7e"></a><br /></li>
 </ul>
 </div>
 
-<div id="outline-container-org411eda6" class="outline-2">
-<h2 id="org411eda6">development env</h2>
-<div class="outline-text-2" id="text-org411eda6">
+<div id="outline-container-org0caadd5" class="outline-2">
+<h2 id="org0caadd5">development env</h2>
+<div class="outline-text-2" id="text-org0caadd5">
 </div>
 <ul class="org-ul">
-<li><a id="orgfdc8ef1"></a>Install build tools (make, gcc, etc)<br />
-<div class="outline-text-3" id="text-orgfdc8ef1">
+<li><a id="org6e91279"></a>Install build tools (make, gcc, etc)<br />
+<div class="outline-text-3" id="text-org6e91279">
 <p>
 Ubuntu
 </p>
@@ -345,8 +351,8 @@ CentOS
 </div>
 </div>
 </li>
-<li><a id="org58f1938"></a>show dynamic link information<br />
-<div class="outline-text-3" id="text-org58f1938">
+<li><a id="org27380cf"></a>show dynamic link information<br />
+<div class="outline-text-3" id="text-org27380cf">
 <p>
 Check directly linked libraries
 </p>

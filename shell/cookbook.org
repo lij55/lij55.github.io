@@ -25,7 +25,7 @@ done
 
 ** Write file
    #+begin_src bash
-   cat << "EOF" > outout.txt
+cat << "EOF" > outout.txt
 export PATH=/opt/bin:$PATH
 EOF
    #+end_src
