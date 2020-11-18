@@ -18,6 +18,10 @@
    #+end_src
 
 * git
+** which tag contain commit
+   #+begin_src bash
+   git tag --contain HASH_ID
+   #+end_src
 * ssh
 * tmux
 * docker

@@ -1,9 +1,91 @@
 #+SETUPFILE: note.setup
+#+TITLE: bash tips
+
+
+* Tips
+** Get folder of script
+   #+begin_src bash
+   TOP_DIR=$(cd $(dirname "$0") && pwd)
+   #+end_src
+
+** Bash check
+*** file
+    #+begin_src bash
+    [[ -f /path/to/file ]] && echo file exists || echo file not exist
+    #+end_src
+    #+begin_src bash
+    if [[ -f /path/to/file ]];then
+        echo file exists
+    else
+        echo file not exist
+    fi
+    #+end_src
+*** env
+    #+begin_src bash
+    if [[ -n "$MYENV" ]]; then
+        echo $MYENV
+    fi
+    #+end_src
+*** folder
+#+begin_src bash
+if [[ -d "$MYDIR" ]]; then
+    echo $MYDIR exists
+fi
+#+end_src
+
+** Default value of environment
+#+begin_src bash
+ENVNAME=${ENVNAME:-earth}
+#+end_src
+
+** Remove line of comments
+   Remove empty line and comment line
+   #+begin_src bash
+   grep -v "^#" test.conf 
+   #+end_src
+   
+** Remove the tailing '|' character of each line
+   #+begin_src bash
+   sed 's/|$//g' input
+   #+end_src
+
+** Remove first line
+   #+begin_src bash
+   sed '1d'
+   #+end_src
 
 * Examples
+** getopts
+#+begin_src bash
+#!/bin/bash
 
+usage() { echo "Usage: $0 [-s <45|90>] [-p <string>]" 1>&2; exit 1; }
+
+while getopts ":s:p:" o; do
+    case "${o}" in
+        s)
+            s=${OPTARG}
+            ((s == 45 || s == 90)) || usage
+            ;;
+        p)
+            p=${OPTARG}
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+if [ -z "${s}" ] || [ -z "${p}" ]; then
+    usage
+fi
+
+echo "s = ${s}"
+echo "p = ${p}"
+#+end_src
 ** Bash loop
-   **For Loop**
+*** FOR loop
 #+BEGIN_SRC bash
 for var in $(ls *.txt)
 do
@@ -30,12 +112,15 @@ export PATH=/opt/bin:$PATH
 EOF
    #+end_src
 
-** Bash environment
+** Function
+#+begin_src bash
+function clean_pyc_files {
+    # Clean up all *.pyc files
+    if [[ -n "$DEST" ]] && [[ -d "$DEST" ]]; then
+        sudo find $DEST -name "*.pyc" -delete
+    fi
+}
+#+end_src
 
-* tips
+** 
 
-** Remove line of comments
-   Remove empty line and comment line
-   #+begin_src bash
-   grep -v "^#" test.conf 
-   #+end_src
