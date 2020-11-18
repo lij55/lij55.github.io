@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-18 Wed 11:00 -->
+<!-- 2020-11-18 Wed 15:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="gpadmin" />
+<meta name="author" content="Jasper Li" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -246,101 +246,89 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9d341e7">1. zsh</a>
-<ul>
-<li><a href="#org32ca27e">1.1. Install</a></li>
+<li><a href="#org47e3396">zsh</a></li>
+<li><a href="#org8dad171">emacs</a></li>
+<li><a href="#org439b8b7">git</a></li>
+<li><a href="#orgb895e08">tmux</a></li>
+<li><a href="#org6034b83">docker</a></li>
+<li><a href="#org411eda6">development env</a></li>
 </ul>
-</li>
-<li><a href="#orgb8b0520">2. emacs</a>
-<ul>
-<li><a href="#org4a1ca12">2.1. Install spacemacs</a></li>
-</ul>
-</li>
-<li><a href="#orgb209d7e">3. git</a></li>
-<li><a href="#org45d047f">4. tmux</a></li>
-<li><a href="#org1e42de4">5. docker</a>
-<ul>
-<li><a href="#org60dbbfc">5.1. Install</a></li>
-</ul>
-</li>
-<li><a href="#orgb927679">6. development env</a>
-<ul>
-<li><a href="#org8eded62">6.1. Install build tools (make, gcc, etc)</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org9d341e7" class="outline-2">
-<h2 id="org9d341e7"><span class="section-number-2">1</span> zsh</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-org32ca27e" class="outline-3">
-<h3 id="org32ca27e"><span class="section-number-3">1.1</span> Install</h3>
-<div class="outline-text-3" id="text-1-1">
-<div class="org-src-container">
-<pre class="src src-bash">sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-</pre>
-</div>
-</div>
 </div>
 </div>
 
-<div id="outline-container-orgb8b0520" class="outline-2">
-<h2 id="orgb8b0520"><span class="section-number-2">2</span> emacs</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org47e3396" class="outline-2">
+<h2 id="org47e3396">zsh</h2>
+<div class="outline-text-2" id="text-org47e3396">
 </div>
-<div id="outline-container-org4a1ca12" class="outline-3">
-<h3 id="org4a1ca12"><span class="section-number-3">2.1</span> Install spacemacs</h3>
-<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a id="org7596984"></a>Install<br />
+<div class="outline-text-3" id="text-org7596984">
+<div class="org-src-container">
+<pre class="src src-bash">sh -c <span style="font-style: italic;">"$(</span><span style="font-weight: bold;">curl</span><span style="font-style: italic;"> -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org8dad171" class="outline-2">
+<h2 id="org8dad171">emacs</h2>
+<div class="outline-text-2" id="text-org8dad171">
+</div>
+<ul class="org-ul">
+<li><a id="org9162d5a"></a>Install spacemacs<br />
+<div class="outline-text-3" id="text-org9162d5a">
 <div class="org-src-container">
 <pre class="src src-bash">git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 </pre>
 </div>
 </div>
-</div>
+</li>
+</ul>
 </div>
 
-<div id="outline-container-orgb209d7e" class="outline-2">
-<h2 id="orgb209d7e"><span class="section-number-2">3</span> git</h2>
+<div id="outline-container-org439b8b7" class="outline-2">
+<h2 id="org439b8b7">git</h2>
 </div>
-<div id="outline-container-org45d047f" class="outline-2">
-<h2 id="org45d047f"><span class="section-number-2">4</span> tmux</h2>
+<div id="outline-container-orgb895e08" class="outline-2">
+<h2 id="orgb895e08">tmux</h2>
 </div>
-<div id="outline-container-org1e42de4" class="outline-2">
-<h2 id="org1e42de4"><span class="section-number-2">5</span> docker</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org6034b83" class="outline-2">
+<h2 id="org6034b83">docker</h2>
+<div class="outline-text-2" id="text-org6034b83">
 </div>
-<div id="outline-container-org60dbbfc" class="outline-3">
-<h3 id="org60dbbfc"><span class="section-number-3">5.1</span> Install</h3>
-<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li><a id="orgdcf8837"></a>Install<br />
+<div class="outline-text-3" id="text-orgdcf8837">
 <p>
 Ubuntu
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-     $(lsb_release -cs) \
-     stable"
+sudo add-apt-repository    <span style="font-style: italic;">"deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span>
+<span style="font-style: italic;">     $(</span><span style="font-weight: bold;">lsb_release</span><span style="font-style: italic;"> -cs) \</span>
+<span style="font-style: italic;">     stable"</span>
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker $<span style="font-weight: bold; font-style: italic;">USER</span>
 sudo systemctl enable docker
 sudo systemctl start docker
 </pre>
 </div>
 </div>
-</div>
+</li>
+<li><a id="org6f685f5"></a><br /></li>
+</ul>
 </div>
 
-
-<div id="outline-container-orgb927679" class="outline-2">
-<h2 id="orgb927679"><span class="section-number-2">6</span> development env</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org411eda6" class="outline-2">
+<h2 id="org411eda6">development env</h2>
+<div class="outline-text-2" id="text-org411eda6">
 </div>
-<div id="outline-container-org8eded62" class="outline-3">
-<h3 id="org8eded62"><span class="section-number-3">6.1</span> Install build tools (make, gcc, etc)</h3>
-<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li><a id="orgfdc8ef1"></a>Install build tools (make, gcc, etc)<br />
+<div class="outline-text-3" id="text-orgfdc8ef1">
 <p>
 Ubuntu
 </p>
@@ -352,17 +340,31 @@ Ubuntu
 CentOS
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sudo yum group install -y "development tools"
+<pre class="src src-bash">sudo yum group install -y <span style="font-style: italic;">"development tools"</span>
 </pre>
 </div>
 </div>
+</li>
+<li><a id="org58f1938"></a>show dynamic link information<br />
+<div class="outline-text-3" id="text-org58f1938">
+<p>
+Check directly linked libraries
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">readelf -d path/to/binary
+</pre>
+</div>
+<p>
+Show all required libraries
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">ldd path/to/binary
+</pre>
 </div>
 </div>
+</li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="author">Author: gpadmin</p>
-<p class="date">Created: 2020-11-18 Wed 11:00</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

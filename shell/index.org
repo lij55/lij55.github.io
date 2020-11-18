@@ -1,2 +1,4 @@
-* [[rel:/cookbook.html][cookbook]]
-* [[rel:/tools.html][tools]]
+#+SETUPFILE: note.setup
+
+* [[./cookbook.html][cookbook]]
+* [[./tools.html][tools]]

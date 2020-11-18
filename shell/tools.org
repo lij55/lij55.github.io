@@ -1,3 +1,5 @@
+#+SETUPFILE: note.setup
+
 * zsh
 ** Install 
  #+begin_src bash

@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-18 Wed 15:05 -->
+<!-- 2020-11-18 Wed 15:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="gpadmin" />
+<meta name="author" content="Jasper Li" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -246,95 +246,79 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga58f233">1. Examples</a>
-<ul>
-<li><a href="#org08e3310">1.1. Bash loop</a></li>
-<li><a href="#orga644400">1.2. Write file</a></li>
-<li><a href="#orgef60c5f">1.3. Bash environment</a></li>
-</ul>
-</li>
-<li><a href="#org3c0bd2b">2. tips</a>
-<ul>
-<li><a href="#orge56048b">2.1. Remove line of comments</a></li>
-</ul>
-</li>
+<li><a href="#orgfe26348">Examples</a></li>
+<li><a href="#org36c6d4e">tips</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga58f233" class="outline-2">
-<h2 id="orga58f233"><span class="section-number-2">1</span> Examples</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgfe26348" class="outline-2">
+<h2 id="orgfe26348">Examples</h2>
+<div class="outline-text-2" id="text-orgfe26348">
 </div>
-<div id="outline-container-org08e3310" class="outline-3">
-<h3 id="org08e3310"><span class="section-number-3">1.1</span> Bash loop</h3>
-<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a id="org3eb5a05"></a>Bash loop<br />
+<div class="outline-text-3" id="text-org3eb5a05">
 <p>
 <b><b>For Loop</b></b>
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">for var in $(ls *.txt)
-do
-    echo ${var}
-done
+<pre class="src src-bash"><span style="font-weight: bold;">for</span> var<span style="font-weight: bold;"> in</span> $(<span style="font-weight: bold;">ls</span> *.txt)
+<span style="font-weight: bold;">do</span>
+    <span style="font-weight: bold;">echo</span> ${<span style="font-weight: bold; font-style: italic;">var</span>}
+<span style="font-weight: bold;">done</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-bash">for var in $(ls *.txt); do echo ${var}; done
+<pre class="src src-bash"><span style="font-weight: bold;">for</span> var<span style="font-weight: bold;"> in</span> $(<span style="font-weight: bold;">ls</span> *.txt); <span style="font-weight: bold;">do </span><span style="font-weight: bold;">echo</span> ${<span style="font-weight: bold; font-style: italic;">var</span>}; <span style="font-weight: bold;">done</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-bash">files="/etc/passwd /etc/group /etc/shadow /etc/gshdow"
-for f in $files
-do
-  [  -f $f ] &amp;&amp; echo "$f file found" || echo "*** Error - $f file missing."
-done
+<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">files</span>=<span style="font-style: italic;">"/etc/passwd /etc/group /etc/shadow /etc/gshdow"</span>
+<span style="font-weight: bold;">for</span> f<span style="font-weight: bold;"> in</span> $<span style="font-weight: bold; font-style: italic;">files</span>
+<span style="font-weight: bold;">do</span>
+  [  -f $<span style="font-weight: bold; font-style: italic;">f</span> ] &amp;&amp; <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"$f file found"</span> || <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"*** Error - $f file missing."</span>
+<span style="font-weight: bold;">done</span>
 </pre>
 </div>
 </div>
-</div>
+</li>
 
-<div id="outline-container-orga644400" class="outline-3">
-<h3 id="orga644400"><span class="section-number-3">1.2</span> Write file</h3>
-<div class="outline-text-3" id="text-1-2">
+<li><a id="org2b680fe"></a>Write file<br />
+<div class="outline-text-3" id="text-org2b680fe">
 <div class="org-src-container">
-<pre class="src src-bash">   cat &lt;&lt; "EOF" &gt; outout.txt
-export PATH=/opt/bin:$PATH
-EOF
+<pre class="src src-bash">   cat &lt;&lt; <span style="font-style: italic;">"EOF"</span> &gt; outout.txt
+<span style="font-weight: bold;">export PATH=/opt/bin:$PATH</span>
+<span style="font-weight: bold;">EOF</span>
 </pre>
 </div>
 </div>
+</li>
+
+<li><a id="orgf035bb7"></a>Bash environment<br /></li>
+</ul>
 </div>
 
-<div id="outline-container-orgef60c5f" class="outline-3">
-<h3 id="orgef60c5f"><span class="section-number-3">1.3</span> Bash environment</h3>
+<div id="outline-container-org36c6d4e" class="outline-2">
+<h2 id="org36c6d4e">tips</h2>
+<div class="outline-text-2" id="text-org36c6d4e">
 </div>
-</div>
-
-<div id="outline-container-org3c0bd2b" class="outline-2">
-<h2 id="org3c0bd2b"><span class="section-number-2">2</span> tips</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orge56048b" class="outline-3">
-<h3 id="orge56048b"><span class="section-number-3">2.1</span> Remove line of comments</h3>
-<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a id="orgbe98f75"></a>Remove line of comments<br />
+<div class="outline-text-3" id="text-orgbe98f75">
 <p>
 Remove empty line and comment line
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">grep -v "^#" test.conf 
+<pre class="src src-bash">grep -v <span style="font-style: italic;">"^#"</span> test.conf 
 </pre>
 </div>
 </div>
+</li>
+</ul>
 </div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: gpadmin</p>
-<p class="date">Created: 2020-11-18 Wed 15:05</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
