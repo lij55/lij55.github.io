@@ -1,6 +1,7 @@
 #+SETUPFILE: note.setup
-#TITLE: hello, world
+#+TITLE: hello, world
 
-* [[./shell/index.html][shell]]
+* [[./shell/index.html][Shell]]
 
   
+* [[./server/index.html][Server]]

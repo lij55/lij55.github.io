@@ -1,0 +1,40 @@
+#+SETUPFILE: note.setup
+#+TITLE: postgres
+
+
+* quick running
+** Source code
+   #+begin_src bash
+   git clone https://github.com/postgres/postgres.git
+   cd postgres
+   git checkout origin/REL_13_STABLE -b REL_13_STABLE
+   #+end_src
+** Build
+*** Dependencies
+    Ubuntu
+    #+begin_src bash
+    sudo apt install libz-dev libreadline-dev bison flex
+    #+end_src
+*** Compile
+    #+begin_src bash
+    ./configure --prefix=/opt/pg13
+    make -j4 && make install
+    #+end_src
+** Run 
+*** Setup PATH env   
+    #+begin_src bash
+    export PATH=/opt/pg13/bin:$PATH
+    #+end_src
+*** start/stop server
+    Init cluster
+    #+begin_src bash
+    pg_ctl init -D /path/to/data
+    #+end_src
+    Start cluster
+    #+begin_src bash
+    pg_ctl -D /path/to/data -l logfile start    
+    #+end_src
+    Stop cluster
+    #+begin_src bash
+    
+    #+end_src

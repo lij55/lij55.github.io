@@ -6,7 +6,7 @@
 <!-- 2020-11-19 Thu 10:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>tips of linux tools</title>
+<title>postgres</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Jasper Li" />
 <style type="text/css">
@@ -248,362 +248,104 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">tips of linux tools</h1>
+<h1 class="title">postgres</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org453f7e5">zsh</a>
+<li><a href="#orge1b756a">quick running</a>
 <ul>
-<li><a href="#org50827b6">Install oh-my-zsh</a></li>
-</ul>
-</li>
-<li><a href="#org69ad016">emacs</a>
-<ul>
-<li><a href="#org0279159">Install spacemacs</a></li>
-<li><a href="#org2b98a2e">Export org in batch mode</a></li>
-</ul>
-</li>
-<li><a href="#org7c85535">git</a>
-<ul>
-<li><a href="#org0ac618e">which tag contain commit</a></li>
-</ul>
-</li>
-<li><a href="#org4f66e5a">ssh</a></li>
-<li><a href="#org62a6b2e">tmux</a>
-<ul>
-<li><a href="#org9ba52d9">config</a></li>
-<li><a href="#orgcba4ea1">command</a></li>
-<li><a href="#org19dcc77">key bind</a></li>
-</ul>
-</li>
-<li><a href="#org2b5854e">docker</a>
-<ul>
-<li><a href="#orgba1f0fb">Install</a></li>
-<li><a href="#orgc25fd1b"></a></li>
-</ul>
-</li>
-<li><a href="#org5da4eba">development env</a>
-<ul>
-<li><a href="#org2e6b1c2">Install build tools (make, gcc, etc)</a></li>
-<li><a href="#org7a966bf">show dynamic link information</a></li>
-</ul>
-</li>
-<li><a href="#orgd3853f6">http server</a>
-<ul>
-<li><a href="#orga017249">caddy</a></li>
-<li><a href="#orgea86ce2">python</a></li>
-</ul>
-</li>
-<li><a href="#org05d16a1">kafkacat</a>
-<ul>
-<li><a href="#org76eb85d">list topic</a></li>
-<li><a href="#orgeba9265">producer</a></li>
-</ul>
-</li>
-<li><a href="#org0d992dd">Kafka</a>
-<ul>
-<li><a href="#org7d2b0c4">Create topic</a></li>
+<li><a href="#org4a49d66">Source code</a></li>
+<li><a href="#orgde8f740">Build</a></li>
+<li><a href="#orgc5d19b0">Run</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org453f7e5" class="outline-2">
-<h2 id="org453f7e5">zsh</h2>
-<div class="outline-text-2" id="text-org453f7e5">
-</div>
-<div id="outline-container-org50827b6" class="outline-3">
-<h3 id="org50827b6">Install oh-my-zsh</h3>
-<div class="outline-text-3" id="text-org50827b6">
-<div class="org-src-container">
-<pre class="src src-bash">sh -c <span style="font-style: italic;">"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span>
-</pre>
-</div>
-</div>
-</div>
-</div>
 
-<div id="outline-container-org69ad016" class="outline-2">
-<h2 id="org69ad016">emacs</h2>
-<div class="outline-text-2" id="text-org69ad016">
+<div id="outline-container-orge1b756a" class="outline-2">
+<h2 id="orge1b756a">quick running</h2>
+<div class="outline-text-2" id="text-orge1b756a">
 </div>
-<div id="outline-container-org0279159" class="outline-3">
-<h3 id="org0279159">Install spacemacs</h3>
-<div class="outline-text-3" id="text-org0279159">
+<div id="outline-container-org4a49d66" class="outline-3">
+<h3 id="org4a49d66">Source code</h3>
+<div class="outline-text-3" id="text-org4a49d66">
 <div class="org-src-container">
-<pre class="src src-bash">git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+<pre class="src src-bash">git clone https://github.com/postgres/postgres.git
+<span style="font-weight: bold;">cd</span> postgres
+git checkout origin/REL_13_STABLE -b REL_13_STABLE
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org2b98a2e" class="outline-3">
-<h3 id="org2b98a2e">Export org in batch mode</h3>
-<div class="outline-text-3" id="text-org2b98a2e">
-<div class="org-src-container">
-<pre class="src src-bash">emacs my.org --batch -l ~/.emacs.d/init.el -f org-html-export-to-html --kill
-</pre>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org7c85535" class="outline-2">
-<h2 id="org7c85535">git</h2>
-<div class="outline-text-2" id="text-org7c85535">
-</div>
-<div id="outline-container-org0ac618e" class="outline-3">
-<h3 id="org0ac618e">which tag contain commit</h3>
-<div class="outline-text-3" id="text-org0ac618e">
-<div class="org-src-container">
-<pre class="src src-bash">git tag --contain HASH_ID
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org4f66e5a" class="outline-2">
-<h2 id="org4f66e5a">ssh</h2>
-</div>
-<div id="outline-container-org62a6b2e" class="outline-2">
-<h2 id="org62a6b2e">tmux</h2>
-<div class="outline-text-2" id="text-org62a6b2e">
-</div>
-<div id="outline-container-org9ba52d9" class="outline-3">
-<h3 id="org9ba52d9">config</h3>
-<div class="outline-text-3" id="text-org9ba52d9">
-<div class="org-src-container">
-<pre class="src src-bash">   cat &lt;&lt;EOF &gt; ~/.tmux.conf
-<span style="font-weight: bold;">cat .tmux.conf</span>
-<span style="font-weight: bold;">set-option -g default-shell /usr/bin/zsh</span>
-<span style="font-weight: bold;">bind -n M-Left select-pane -L</span>
-<span style="font-weight: bold;">bind -n M-Right select-pane -R</span>
-<span style="font-weight: bold;">bind -n M-Up select-pane -U</span>
-<span style="font-weight: bold;">bind -n M-Down select-pane -D</span>
-<span style="font-weight: bold;">bind -n S-Left previous-window</span>
-<span style="font-weight: bold;">bind -n S-Right next-window</span>
-<span style="font-weight: bold;">setw -g automatic-rename on</span>
-<span style="font-weight: bold;">setw -g monitor-activity on</span>
-<span style="font-weight: bold;">set -s escape-time 1</span>
-<span style="font-weight: bold;">set -g base-index 1</span>
-<span style="font-weight: bold;">setw -g pane-base-index 1</span>
-<span style="font-weight: bold;">bind | split-window -h</span>
-<span style="font-weight: bold;">bind - split-window -v</span>
-<span style="font-weight: bold;">bind r source-file ~/.tmux.conf \; display "Reloaded!"</span>
-<span style="font-weight: bold;">bind -r &lt; resize-pane -L 5</span>
-<span style="font-weight: bold;">bind -r &gt; resize-pane -R 5</span>
-<span style="font-weight: bold;">setw -g mode-keys emacs # vi</span>
-<span style="font-weight: bold;">EOF</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgcba4ea1" class="outline-3">
-<h3 id="orgcba4ea1">command</h3>
-<div class="outline-text-3" id="text-orgcba4ea1">
+<div id="outline-container-orgde8f740" class="outline-3">
+<h3 id="orgde8f740">Build</h3>
+<div class="outline-text-3" id="text-orgde8f740">
 </div>
 <ul class="org-ul">
-<li><a id="orgf56f0bf"></a>New session with name<br />
-<div class="outline-text-4" id="text-orgf56f0bf">
+<li><a id="org92241f4"></a>Dependencies<br />
+<div class="outline-text-4" id="text-org92241f4">
+<p>
+Ubuntu
+</p>
 <div class="org-src-container">
-<pre class="src src-bash">tmux new -s mynew
+<pre class="src src-bash">sudo apt install libz-dev libreadline-dev bison flex
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orgd0d12f0"></a>Attach session<br />
-<div class="outline-text-4" id="text-orgd0d12f0">
+<li><a id="orgca35d10"></a>Compile<br />
+<div class="outline-text-4" id="text-orgca35d10">
 <div class="org-src-container">
-<pre class="src src-bash">tmux attach -t mynew
+<pre class="src src-bash">./configure --prefix=/opt/pg13
+make -j4 &amp;&amp; make install
 </pre>
 </div>
 </div>
 </li>
 </ul>
 </div>
-<div id="outline-container-org19dcc77" class="outline-3">
-<h3 id="org19dcc77">key bind</h3>
-<div class="outline-text-3" id="text-org19dcc77">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">key</th>
-<th scope="col" class="org-left">description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
+<div id="outline-container-orgc5d19b0" class="outline-3">
+<h3 id="orgc5d19b0">Run</h3>
+<div class="outline-text-3" id="text-orgc5d19b0">
 </div>
-</div>
-</div>
-<div id="outline-container-org2b5854e" class="outline-2">
-<h2 id="org2b5854e">docker</h2>
-<div class="outline-text-2" id="text-org2b5854e">
-</div>
-<div id="outline-container-orgba1f0fb" class="outline-3">
-<h3 id="orgba1f0fb">Install</h3>
-<div class="outline-text-3" id="text-orgba1f0fb">
-<p>
-Ubuntu
-</p>
+<ul class="org-ul">
+<li><a id="org4f0b1f4"></a>Setup PATH env<br />
+<div class="outline-text-4" id="text-org4f0b1f4">
 <div class="org-src-container">
-<pre class="src src-bash">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository    <span style="font-style: italic;">"deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span>
-<span style="font-style: italic;">     $(lsb_release -cs) \</span>
-<span style="font-style: italic;">     stable"</span>
-sudo apt-get install docker-ce docker-ce-cli containerd.io
-sudo groupadd docker
-sudo usermod -aG docker $<span style="font-weight: bold; font-style: italic;">USER</span>
-sudo systemctl enable docker
-sudo systemctl start docker
+<pre class="src src-bash"><span style="font-weight: bold;">export</span> <span style="font-weight: bold; font-style: italic;">PATH</span>=/opt/pg13/bin:$<span style="font-weight: bold; font-style: italic;">PATH</span>
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-orgc25fd1b" class="outline-3">
-<h3 id="orgc25fd1b"></h3>
-</div>
-</div>
-
-<div id="outline-container-org5da4eba" class="outline-2">
-<h2 id="org5da4eba">development env</h2>
-<div class="outline-text-2" id="text-org5da4eba">
-</div>
-<div id="outline-container-org2e6b1c2" class="outline-3">
-<h3 id="org2e6b1c2">Install build tools (make, gcc, etc)</h3>
-<div class="outline-text-3" id="text-org2e6b1c2">
+</li>
+<li><a id="orgb4f6cf1"></a>start/stop server<br />
+<div class="outline-text-4" id="text-orgb4f6cf1">
 <p>
-Ubuntu
+Init cluster
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sudo apt install -y build-essential
+<pre class="src src-bash">pg_ctl init -D /path/to/data
 </pre>
 </div>
 <p>
-CentOS
+Start cluster
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sudo yum group install -y <span style="font-style: italic;">"development tools"</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org7a966bf" class="outline-3">
-<h3 id="org7a966bf">show dynamic link information</h3>
-<div class="outline-text-3" id="text-org7a966bf">
-<p>
-Check directly linked libraries
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">readelf -d path/to/binary
+<pre class="src src-bash">
 </pre>
 </div>
 <p>
-Show all required libraries
+Stop cluster
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">ldd path/to/binary
+<pre class="src src-bash">
 </pre>
 </div>
 </div>
-</div>
-</div>
-<div id="outline-container-orgd3853f6" class="outline-2">
-<h2 id="orgd3853f6">http server</h2>
-<div class="outline-text-2" id="text-orgd3853f6">
-</div>
-<div id="outline-container-orga017249" class="outline-3">
-<h3 id="orga017249">caddy</h3>
-<div class="outline-text-3" id="text-orga017249">
-<p>
-Download/Install
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">curl -OL <span style="font-style: italic;">"https://github.com/caddyserver/caddy/releases/latest/download/ASSET"</span>
-</pre>
-</div>
-<p>
-Replace ASSET with the <code>caddy_[version]_[os]_[arch].tar.gz</code>. For example, <code>caddy_2.2.1_linux_amd64.tar.gz</code>, <code>caddy_2.2.1_mac_amd64.tar.gz</code>
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash">docker pull caddy
-</pre>
-</div>
-<p>
-File server
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">caddy file-server --root <span style="font-weight: bold;">`pwd`</span> --listen 80 --browse
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgea86ce2" class="outline-3">
-<h3 id="orgea86ce2">python</h3>
-<div class="outline-text-3" id="text-orgea86ce2">
-<p>
-python 3
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">python3 -m http.server 8000
-</pre>
-</div>
-<p>
-python 2
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">python -m SimpleHTTPServer 8000
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org05d16a1" class="outline-2">
-<h2 id="org05d16a1">kafkacat</h2>
-<div class="outline-text-2" id="text-org05d16a1">
-</div>
-<div id="outline-container-org76eb85d" class="outline-3">
-<h3 id="org76eb85d">list topic</h3>
-<div class="outline-text-3" id="text-org76eb85d">
-<div class="org-src-container">
-<pre class="src src-bash">kafkacat -b broker_list -L -j
-</pre>
-</div>
-<p>
-<code>-j</code> means in json format
-</p>
-</div>
-</div>
-<div id="outline-container-orgeba9265" class="outline-3">
-<h3 id="orgeba9265">producer</h3>
-</div>
-</div>
-<div id="outline-container-org0d992dd" class="outline-2">
-<h2 id="org0d992dd">Kafka</h2>
-<div class="outline-text-2" id="text-org0d992dd">
-</div>
-<div id="outline-container-org7d2b0c4" class="outline-3">
-<h3 id="org7d2b0c4">Create topic</h3>
-<div class="outline-text-3" id="text-org7d2b0c4">
-<div class="org-src-container">
-<pre class="src src-bash">bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
-</pre>
-</div>
-</div>
+</li>
+</ul>
 </div>
 </div>
 </div>

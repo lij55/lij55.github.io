@@ -1,0 +1,10 @@
+#+SETUPFILE: note.setup
+#+TITLE: Kafka
+
+
+* Install Kafka
+
+* Manage Kafka
+
+* Config Kafka
+

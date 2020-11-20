@@ -24,6 +24,43 @@
    #+end_src
 * ssh
 * tmux
+** config
+   #+begin_src bash
+   cat <<EOF > ~/.tmux.conf
+cat .tmux.conf
+set-option -g default-shell /usr/bin/zsh
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+bind -n S-Left previous-window
+bind -n S-Right next-window
+setw -g automatic-rename on
+setw -g monitor-activity on
+set -s escape-time 1
+set -g base-index 1
+setw -g pane-base-index 1
+bind | split-window -h
+bind - split-window -v
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+bind -r < resize-pane -L 5
+bind -r > resize-pane -R 5
+setw -g mode-keys emacs # vi
+EOF
+   #+end_src
+** command
+*** New session with name
+    #+begin_src bash
+    tmux new -s mynew
+    #+end_src
+*** Attach session
+    #+begin_src bash
+    tmux attach -t mynew
+    #+end_src
+** key bind
+| key | description |
+|-----+-------------|
+|     |             |
 * docker
 ** Install
    Ubuntu
@@ -91,7 +128,62 @@
   =-j= means in json format
 ** producer
 * Kafka
-  ** Create topic
+** Create topic
   #+begin_src bash
   bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
   #+end_src
+* Vagrant
+
+** Ubuntu
+*** Dependencies
+
+   #+BEGIN_SRC bash
+   wget https://download.virtualbox.org/virtualbox/6.1.16/virtualbox-6.1_6.1.16-140961~Ubuntu~bionic_amd64.deb
+   sudo apt install -y bsdtar
+   sudo dpkg -i virtualbox-6.1_6.1.16*.deb
+   sudo apt install -f
+   #+END_SRC
+
+*** Install
+   #+BEGIN_SRC bash
+   wget https://releases.hashicorp.com/vagrant/2.2.13/vagrant_2.2.13_linux_amd64.zip
+   unzip vagrant_2.2.13_linux_amd64.zip
+   chmod +x vagrant
+   sudo mv vagrant /usr/bin
+   #+END_SRC
+
+** Run
+#+BEGIN_SRC bash
+vagrant init ubuntu/bionic64
+vagrant up
+#+END_SRC
+
+*** openssl version issue
+#+BEGIN_SRC bash
+ssh $(vagrant ssh-config | awk 'NR>1 {print " -o "$1"="$2}') localhost
+#+END_SRC
+* apt/deb
+** list content of package
+#+BEGIN_SRC 
+dpkg -c package.deb
+#+END_SRC
+* frp
+Download
+#+BEGIN_SRC bash
+wget https://github.com/fatedier/frp/releases/download/v0.34.3/frp_0.34.3_linux_amd64.tar.gz
+#+END_SRC
+
+
+client config
+#+BEGIN_SRC text
+[common]
+server_addr = remote_address
+server_port = remote_port
+token = token
+
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 2222
+#+END_SRC

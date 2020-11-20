@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-18 Wed 21:20 -->
+<!-- 2020-11-19 Thu 10:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>bash tips</title>
@@ -253,23 +253,23 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org20b3489">Tips</a>
+<li><a href="#org2e21a77">Tips</a>
 <ul>
-<li><a href="#org838acb4">Get folder of script</a></li>
-<li><a href="#org5d22741">Bash check</a></li>
-<li><a href="#org8642ddd">Default value of environment</a></li>
-<li><a href="#org1ab61ac">Remove line of comments</a></li>
-<li><a href="#org05e65ab">Remove the tailing '|' character of each line</a></li>
-<li><a href="#orge102f09">Remove first line</a></li>
+<li><a href="#orgcb8ac2e">Get folder of script</a></li>
+<li><a href="#org48a289f">Bash check</a></li>
+<li><a href="#org267c91c">Default value of environment</a></li>
+<li><a href="#orge189f30">Remove line of comments</a></li>
+<li><a href="#org581e8b1">Remove the tailing '|' character of each line</a></li>
+<li><a href="#org78909f5">Remove first line</a></li>
 </ul>
 </li>
-<li><a href="#org3778361">Examples</a>
+<li><a href="#orge1658c1">Examples</a>
 <ul>
-<li><a href="#orgd622e83">getopts</a></li>
-<li><a href="#org85433a6">Bash loop</a></li>
-<li><a href="#org0a09644">Write file</a></li>
-<li><a href="#org53988b0">function</a></li>
-<li><a href="#orga9bb0f2"></a></li>
+<li><a href="#org5fa0aa7">getopts</a></li>
+<li><a href="#orgb677c5d">Bash loop</a></li>
+<li><a href="#org72998c1">Write file</a></li>
+<li><a href="#org43834c2">Function</a></li>
+<li><a href="#org650e796"></a></li>
 </ul>
 </li>
 </ul>
@@ -277,57 +277,57 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org20b3489" class="outline-2">
-<h2 id="org20b3489">Tips</h2>
-<div class="outline-text-2" id="text-org20b3489">
+<div id="outline-container-org2e21a77" class="outline-2">
+<h2 id="org2e21a77">Tips</h2>
+<div class="outline-text-2" id="text-org2e21a77">
 </div>
-<div id="outline-container-org838acb4" class="outline-3">
-<h3 id="org838acb4">Get folder of script</h3>
-<div class="outline-text-3" id="text-org838acb4">
+<div id="outline-container-orgcb8ac2e" class="outline-3">
+<h3 id="orgcb8ac2e">Get folder of script</h3>
+<div class="outline-text-3" id="text-orgcb8ac2e">
 <div class="org-src-container">
-<pre class="src src-bash">TOP_DIR=$(cd $(dirname "$0") &amp;&amp; pwd)
+<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">TOP_DIR</span>=$(<span style="font-weight: bold;">cd</span> $(dirname <span style="font-style: italic;">"$0"</span>) &amp;&amp; <span style="font-weight: bold;">pwd</span>)
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5d22741" class="outline-3">
-<h3 id="org5d22741">Bash check</h3>
-<div class="outline-text-3" id="text-org5d22741">
+<div id="outline-container-org48a289f" class="outline-3">
+<h3 id="org48a289f">Bash check</h3>
+<div class="outline-text-3" id="text-org48a289f">
 </div>
 <ul class="org-ul">
-<li><a id="org68d73d2"></a>file<br />
-<div class="outline-text-4" id="text-org68d73d2">
+<li><a id="orgf597ec4"></a>file<br />
+<div class="outline-text-4" id="text-orgf597ec4">
 <div class="org-src-container">
-<pre class="src src-bash">[[ -f /path/to/file ]] &amp;&amp; echo file exists || echo file not exist
+<pre class="src src-bash">[[ -f /path/to/file ]] &amp;&amp; <span style="font-weight: bold;">echo</span> file exists || <span style="font-weight: bold;">echo</span> file not exist
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-bash">if [[ -f /path/to/file ]];then
-    echo file exists
-else
-    echo file not exist
-fi
-</pre>
-</div>
-</div>
-</li>
-<li><a id="orgaa4804f"></a>env<br />
-<div class="outline-text-4" id="text-orgaa4804f">
-<div class="org-src-container">
-<pre class="src src-bash">if [[ -n "$MYENV" ]]; then
-    echo $MYENV
-fi
+<pre class="src src-bash"><span style="font-weight: bold;">if</span> [[ -f /path/to/file ]];<span style="font-weight: bold;">then</span>
+    <span style="font-weight: bold;">echo</span> file exists
+<span style="font-weight: bold;">else</span>
+    <span style="font-weight: bold;">echo</span> file not exist
+<span style="font-weight: bold;">fi</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org727e083"></a>folder<br />
-<div class="outline-text-4" id="text-org727e083">
+<li><a id="orge662320"></a>env<br />
+<div class="outline-text-4" id="text-orge662320">
 <div class="org-src-container">
-<pre class="src src-bash">if [[ -d "$MYDIR" ]]; then
-    echo $MYDIR exists
-fi
+<pre class="src src-bash"><span style="font-weight: bold;">if</span> [[ -n <span style="font-style: italic;">"$MYENV"</span> ]]; <span style="font-weight: bold;">then</span>
+    <span style="font-weight: bold;">echo</span> $<span style="font-weight: bold; font-style: italic;">MYENV</span>
+<span style="font-weight: bold;">fi</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org24838f0"></a>folder<br />
+<div class="outline-text-4" id="text-org24838f0">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">if</span> [[ -d <span style="font-style: italic;">"$MYDIR"</span> ]]; <span style="font-weight: bold;">then</span>
+    <span style="font-weight: bold;">echo</span> $<span style="font-weight: bold; font-style: italic;">MYDIR</span> exists
+<span style="font-weight: bold;">fi</span>
 </pre>
 </div>
 </div>
@@ -335,114 +335,114 @@ fi
 </ul>
 </div>
 
-<div id="outline-container-org8642ddd" class="outline-3">
-<h3 id="org8642ddd">Default value of environment</h3>
-<div class="outline-text-3" id="text-org8642ddd">
+<div id="outline-container-org267c91c" class="outline-3">
+<h3 id="org267c91c">Default value of environment</h3>
+<div class="outline-text-3" id="text-org267c91c">
 <div class="org-src-container">
-<pre class="src src-bash">ENVNAME=${ENVNAME:-earth}
+<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">ENVNAME</span>=${<span style="font-weight: bold; font-style: italic;">ENVNAME</span>:-earth}
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1ab61ac" class="outline-3">
-<h3 id="org1ab61ac">Remove line of comments</h3>
-<div class="outline-text-3" id="text-org1ab61ac">
+<div id="outline-container-orge189f30" class="outline-3">
+<h3 id="orge189f30">Remove line of comments</h3>
+<div class="outline-text-3" id="text-orge189f30">
 <p>
 Remove empty line and comment line
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">grep -v "^#" test.conf 
+<pre class="src src-bash">grep -v <span style="font-style: italic;">"^#"</span> test.conf 
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org05e65ab" class="outline-3">
-<h3 id="org05e65ab">Remove the tailing '|' character of each line</h3>
-<div class="outline-text-3" id="text-org05e65ab">
+<div id="outline-container-org581e8b1" class="outline-3">
+<h3 id="org581e8b1">Remove the tailing '|' character of each line</h3>
+<div class="outline-text-3" id="text-org581e8b1">
 <div class="org-src-container">
-<pre class="src src-bash">sed 's/|$//g' input
+<pre class="src src-bash">sed <span style="font-style: italic;">'s/|$//g'</span> input
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orge102f09" class="outline-3">
-<h3 id="orge102f09">Remove first line</h3>
-<div class="outline-text-3" id="text-orge102f09">
+<div id="outline-container-org78909f5" class="outline-3">
+<h3 id="org78909f5">Remove first line</h3>
+<div class="outline-text-3" id="text-org78909f5">
 <div class="org-src-container">
-<pre class="src src-bash">sed '1d'
+<pre class="src src-bash">sed <span style="font-style: italic;">'1d'</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3778361" class="outline-2">
-<h2 id="org3778361">Examples</h2>
-<div class="outline-text-2" id="text-org3778361">
+<div id="outline-container-orge1658c1" class="outline-2">
+<h2 id="orge1658c1">Examples</h2>
+<div class="outline-text-2" id="text-orge1658c1">
 </div>
-<div id="outline-container-orgd622e83" class="outline-3">
-<h3 id="orgd622e83">getopts</h3>
-<div class="outline-text-3" id="text-orgd622e83">
+<div id="outline-container-org5fa0aa7" class="outline-3">
+<h3 id="org5fa0aa7">getopts</h3>
+<div class="outline-text-3" id="text-org5fa0aa7">
 <div class="org-src-container">
-<pre class="src src-bash">#!/bin/bash
+<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">bash</span>
 
-usage() { echo "Usage: $0 [-s &lt;45|90&gt;] [-p &lt;string&gt;]" 1&gt;&amp;2; exit 1; }
+<span style="font-weight: bold;">usage</span>() { <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"Usage: $0 [-s &lt;45|90&gt;] [-p &lt;string&gt;]"</span> 1&gt;&amp;2; <span style="font-weight: bold;">exit</span> 1; }
 
-while getopts ":s:p:" o; do
-    case "${o}" in
-	s)
-	    s=${OPTARG}
-	    ((s == 45 || s == 90)) || usage
-	    ;;
-	p)
-	    p=${OPTARG}
-	    ;;
-	*)
-	    usage
-	    ;;
-    esac
-done
-shift $((OPTIND-1))
+<span style="font-weight: bold;">while </span><span style="font-weight: bold;">getopts</span> <span style="font-style: italic;">":s:p:"</span> o; <span style="font-weight: bold;">do</span>
+    <span style="font-weight: bold;">case</span> <span style="font-style: italic;">"${o}"</span><span style="font-weight: bold;"> in</span>
+        s)
+            <span style="font-weight: bold; font-style: italic;">s</span>=${<span style="font-weight: bold; font-style: italic;">OPTARG</span>}
+            ((<span style="font-weight: bold; font-style: italic;">s</span> == 45 || <span style="font-weight: bold; font-style: italic;">s</span> == 90)) || usage
+            ;;
+        p)
+            <span style="font-weight: bold; font-style: italic;">p</span>=${<span style="font-weight: bold; font-style: italic;">OPTARG</span>}
+            ;;
+        *)
+            usage
+            ;;
+    <span style="font-weight: bold;">esac</span>
+<span style="font-weight: bold;">done</span>
+<span style="font-weight: bold;">shift</span> $((OPTIND-1))
 
-if [ -z "${s}" ] || [ -z "${p}" ]; then
+<span style="font-weight: bold;">if</span> [ -z <span style="font-style: italic;">"${s}"</span> ] || [ -z <span style="font-style: italic;">"${p}"</span> ]; <span style="font-weight: bold;">then</span>
     usage
-fi
+<span style="font-weight: bold;">fi</span>
 
-echo "s = ${s}"
-echo "p = ${p}"
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"s = ${s}"</span>
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"p = ${p}"</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org85433a6" class="outline-3">
-<h3 id="org85433a6">Bash loop</h3>
-<div class="outline-text-3" id="text-org85433a6">
+<div id="outline-container-orgb677c5d" class="outline-3">
+<h3 id="orgb677c5d">Bash loop</h3>
+<div class="outline-text-3" id="text-orgb677c5d">
 </div>
 <ul class="org-ul">
-<li><a id="org3ccc780"></a>FOR loop<br />
-<div class="outline-text-4" id="text-org3ccc780">
+<li><a id="org1e05782"></a>FOR loop<br />
+<div class="outline-text-4" id="text-org1e05782">
 <div class="org-src-container">
-<pre class="src src-bash">for var in $(ls *.txt)
-do
-    echo ${var}
-done
+<pre class="src src-bash"><span style="font-weight: bold;">for</span> var<span style="font-weight: bold;"> in</span> $(ls *.txt)
+<span style="font-weight: bold;">do</span>
+    <span style="font-weight: bold;">echo</span> ${<span style="font-weight: bold; font-style: italic;">var</span>}
+<span style="font-weight: bold;">done</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-bash">for var in $(ls *.txt); do echo ${var}; done
+<pre class="src src-bash"><span style="font-weight: bold;">for</span> var<span style="font-weight: bold;"> in</span> $(ls *.txt); <span style="font-weight: bold;">do </span><span style="font-weight: bold;">echo</span> ${<span style="font-weight: bold; font-style: italic;">var</span>}; <span style="font-weight: bold;">done</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-bash">files="/etc/passwd /etc/group /etc/shadow /etc/gshdow"
-for f in $files
-do
-	[  -f $f ] &amp;&amp; echo "$f file found" || echo "*** Error - $f file missing."
-done
+<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">files</span>=<span style="font-style: italic;">"/etc/passwd /etc/group /etc/shadow /etc/gshdow"</span>
+<span style="font-weight: bold;">for</span> f<span style="font-weight: bold;"> in</span> $<span style="font-weight: bold; font-style: italic;">files</span>
+<span style="font-weight: bold;">do</span>
+  [  -f $<span style="font-weight: bold; font-style: italic;">f</span> ] &amp;&amp; <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"$f file found"</span> || <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"*** Error - $f file missing."</span>
+<span style="font-weight: bold;">done</span>
 </pre>
 </div>
 </div>
@@ -450,35 +450,35 @@ done
 </ul>
 </div>
 
-<div id="outline-container-org0a09644" class="outline-3">
-<h3 id="org0a09644">Write file</h3>
-<div class="outline-text-3" id="text-org0a09644">
+<div id="outline-container-org72998c1" class="outline-3">
+<h3 id="org72998c1">Write file</h3>
+<div class="outline-text-3" id="text-org72998c1">
 <div class="org-src-container">
-<pre class="src src-bash">cat &lt;&lt; "EOF" &gt; outout.txt
-export PATH=/opt/bin:$PATH
-EOF
+<pre class="src src-bash">cat &lt;&lt; <span style="font-style: italic;">"EOF"</span> &gt; outout.txt
+<span style="font-weight: bold;">export PATH=/opt/bin:$PATH</span>
+<span style="font-weight: bold;">EOF</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org53988b0" class="outline-3">
-<h3 id="org53988b0">function</h3>
-<div class="outline-text-3" id="text-org53988b0">
+<div id="outline-container-org43834c2" class="outline-3">
+<h3 id="org43834c2">Function</h3>
+<div class="outline-text-3" id="text-org43834c2">
 <div class="org-src-container">
-<pre class="src src-bash">function clean_pyc_files {
-    # Clean up all *.pyc files
-    if [[ -n "$DEST" ]] &amp;&amp; [[ -d "$DEST" ]]; then
-	sudo find $DEST -name "*.pyc" -delete
-    fi
+<pre class="src src-bash"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">clean_pyc_files</span> {
+    <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Clean up all *.pyc files</span>
+    <span style="font-weight: bold;">if</span> [[ -n <span style="font-style: italic;">"$DEST"</span> ]] &amp;&amp; [[ -d <span style="font-style: italic;">"$DEST"</span> ]]; <span style="font-weight: bold;">then</span>
+        sudo find $<span style="font-weight: bold; font-style: italic;">DEST</span> -name <span style="font-style: italic;">"*.pyc"</span> -delete
+    <span style="font-weight: bold;">fi</span>
 }
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga9bb0f2" class="outline-3">
-<h3 id="orga9bb0f2"></h3>
+<div id="outline-container-org650e796" class="outline-3">
+<h3 id="org650e796"></h3>
 </div>
 </div>
 </div>

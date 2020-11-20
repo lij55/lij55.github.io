@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ln -sf `pwd`/note.setup shell/
-emacs  ./index.org --batch -l ~/.emacs.d/init.el -f org-html-export-to-html --kill
-emacs  ./shell/index.org --batch -l ~/.emacs.d/init.el -f org-html-export-to-html --kill
-emacs  ./shell/tools.org --batch -l ~/.emacs.d/init.el -f org-html-export-to-html --kill
-emacs  ./shell/cookbook.org --batch -l ~/.emacs.d/init.el -f org-html-export-to-html --kill
+ln -sf `pwd`/note.setup server/
+ln -sf `pwd`/note.setup program/
+find . -name "*.org" | xargs -I {} emacs {} --batch -l ~/.emacs.d/init.el -f org-html-export-to-html --kill
