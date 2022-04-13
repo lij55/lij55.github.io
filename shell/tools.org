@@ -162,6 +162,12 @@ vagrant up
 #+BEGIN_SRC bash
 ssh $(vagrant ssh-config | awk 'NR>1 {print " -o "$1"="$2}') localhost
 #+END_SRC
+** Box list
+   #+BEGIN_SRC bash
+   $ vagrant box add {title} {url}
+   $ vagrant init {title}
+   $ vagrant up
+   #+END_SRC
 * apt/deb
 ** list content of package
 #+BEGIN_SRC 
