@@ -1,0 +1,57 @@
+
+* Download/Install
+  from [[https://www.foundationdb.org/download/][homepage]], for example on Ubuntu:
+  #+begin_src bash
+  wget https://www.foundationdb.org/downloads/6.2.27/ubuntu/installers/foundationdb-clients_6.2.27-1_amd64.deb
+  wget https://www.foundationdb.org/downloads/6.2.27/ubuntu/installers/foundationdb-server_6.2.27-1_amd64.deb
+  sudo dpkg -i foundation*.deb
+  #+end_src
+  It will start automatically in single node mode by default
+
+* Config file
+** cluster file
+   This is the cluster ID and coordinator definiation file. Client and all members of server cluster need the same cluster file.It is duplicated on each host that needs it.
+   Default location is ==/etc/foundationdb/fdb.cluster==. Format is ==ID:DESCRIPTION@IP1:PORT,IP2:PORT==
+
+   Example format is:
+   #+begin_example
+   db1:hellofdb@172.28.128.8:4500,172.28.128.9:4500,172.28.128.10:4500
+   #+end_example
+** server config
+   Default config file location is ==/etc/foundationdb/foundationdb.conf==.
+   The default content works for host with single process running. Each process require at least 4G memory. Each processs is identified by the ID (port?)
+* Manage cluster
+** check status
+#+begin_src bash
+fdbcli --exec "status"
+fdbcli --exec "status details"
+#+end_src
+** start/stop
+  #+begin_src bash
+  service foundationdb start
+  service foundationdb stop
+  #+end_src
+** change coordinator
+   #+begin_src bash
+   fdbcli  --exec "coordinators ip1:port ip2:port ip3:port"
+   #+end_src
+** delete host from cluster
+   #+begin_src bash
+   fdbcli --exec "exclude 1.2.3.4 1.2.3.5 1.2.3.6"
+   #+end_src
+** add host to cluster
+   1. copy cluster file to new host
+   2. start with new cluster file
+   3. include it again if it was excluded before
+   #+begin_src bash
+   fdbcli --exec "include a.b.c.d"
+   #+end_src
+
+* Trouble shooting
+** The coordinator(s) have no record of this database.
+   If the coordinator is set correctly, then use following command to config a replication
+   #+begin_src bash
+   fdbcli --exec "configure new single ssd"
+   #+end_src
+** can connect to coordinator
+   Make sure the fdbserver is listening on public ip address instead of `127.0.0.`.
